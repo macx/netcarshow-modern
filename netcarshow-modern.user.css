@@ -1,0 +1,212 @@
+/* ==UserStyle==
+@name         NetCarShow Modern
+@version      v0.1.0
+@namespace    github.com/macx
+@description  Modern look for NetCarShow.com
+@author       macx
+@license      MIT
+@homepageURL  https://github.com/macx/netcarshow-modern
+@supportURL   https://github.com/macx/netcarshow-modern/issues
+@updateURL    https://raw.githubusercontent.com/macx/netcarshow-modern/main/google-photos-dark-mode.user.css
+
+==/UserStyle== */
+
+@-moz-document domain("netcarshow.com") {
+  /* netcarshow.com*/
+
+  :root {
+    --spacing: 1.5rem;
+    --content-spacing: var(--spacing);
+    --radius: 0.5rem;
+
+    --clr-line: rgba(255, 255, 255, 0.2);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .tL a {
+    display: block;
+  }
+
+  .adW {
+    display: none;
+  }
+
+  .pL a {
+    display: block;
+  }
+
+  .pL img {
+    display: block;
+    width: auto;
+    height: 15px;
+  }
+
+  .bT,
+  .mSh,
+  .navM,
+  .navMc,
+  .photoHD,
+  .tT {
+    position: fixed;
+  }
+
+  #hA,
+  #hB,
+  #hC,
+  #hD,
+  #hE {
+    transition: none;
+  }
+
+  /*
+  ┌──────────────────────────────────┐
+    IMAGE NAVIGATION
+  └──────────────────────────────────┘
+  */
+
+  a.navL,
+  a.navR {
+    position: fixed;
+    width: 4rem;
+    height: 4rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--clr-line);
+    border-radius: var(--radius);
+    padding: 0 !important;
+    color: transparent;
+  }
+
+  a.navL {
+    left: var(--content-spacing);
+  }
+
+  a.navR {
+    right: var(--content-spacing);
+  }
+
+  .navL::before,
+  .navR::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    content: '';
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .navL::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24' fill='%23FFF'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z'/%3E%3C/svg%3E");
+  }
+
+  .navR::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 0 24 24' width='24' fill='%23FFF'%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3Cpath d='M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z'/%3E%3C/svg%3E");
+  }
+
+  .navL:hover,
+  .navR:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .Ll {
+    max-height: 200px;
+    overflow: auto;
+  }
+
+  .mD {
+    font-size: 1rem;
+    line-height: 1.3;
+    padding: 2rem;
+    font-family: inherit;
+    text-align: left;
+  }
+
+  .mD h2 {
+    font-size: 2.2rem;
+    text-align: left;
+  }
+
+  .mD p {
+    width: auto;
+  }
+
+  @media (min-height: 610px) and (min-width: 1152px) {
+    #ccW .adHW,
+    #ccW .adW {
+      display: none;
+    }
+
+    #ccW .cc1600 {
+      max-width: 100%;
+    }
+
+    #ccW .D1280,
+    #ccW .D1600 {
+      max-width: unset;
+    }
+
+    #ccW .cc1280 {
+      width: auto;
+    }
+
+    #ccW .I1024,
+    #ccW .I1280,
+    #ccW .I1600,
+    #ccW .I800,
+    #ccW .bT,
+    #ccW .tT {
+      border: 0;
+    }
+
+    #ccW .ssH1024,
+    #ccW .ssH1280,
+    #ccW .ssH1600,
+    #ccW .ssH800 {
+      display: block;
+    }
+
+    #ccW .ssH1280 {
+      display: flex;
+      align-items: center;
+    }
+
+    #ccW .cc1280 .pL {
+      margin-left: 30px;
+    }
+
+    #ccW .photoHD {
+      width: 100%;
+      max-width: unset;
+    }
+
+    .navL,
+    .navR {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .photoHD {
+      max-width: unset !important;
+      max-height: unset !important;
+    }
+
+    .mD {
+      font-size: 1.25rem;
+      line-height: 1.3;
+      padding: 3rem;
+    }
+  }
+}
