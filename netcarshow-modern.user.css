@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         NetCarShow Modern
-@version      v0.1.1
+@version      v0.1.2
 @namespace    github.com/macx
 @description  Modern look for NetCarShow.com
 @author       macx
@@ -15,12 +15,16 @@
   /* netcarshow.com*/
 
   :root {
-    --spacing: 1.5rem;
-    --content-spacing: var(--spacing);
+    --spacing: 1.25rem;
+    --spacing--small: 0.9375rem;
+    --spacing--xsmall: 0.625rem;
+
+    --content-spacing: 1.5rem;
     --radius: 0.5rem;
 
     --transition: 120ms ease-in;
 
+    --clr-text--light: rgba(255, 255, 255, 0.8);
     --clr-line: rgba(255, 255, 255, 0.2);
   }
 
@@ -34,12 +38,109 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  .tL a {
-    display: block;
-  }
-
   .adW {
     display: none;
+  }
+
+  /*
+  ┌──────────────────────────────────┐
+    FRONT / ARTICLE PAGE
+  └──────────────────────────────────┘
+  */
+
+  #cc {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-rows: 100px 1fr auto-fit;
+    gap: 20px 20px;
+    grid-template-areas:
+      'header header'
+      'news library'
+      'footer footer';
+
+    width: unset;
+    padding: var(--spacing);
+  }
+
+  .exT,
+  .mTm {
+    display: none;
+  }
+
+  /* Header */
+  .tL {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-area: header;
+  }
+
+  .tL > a {
+    display: block;
+    margin-bottom: var(--spacing--small);
+  }
+
+  .Lx {
+    grid-area: news;
+    margin: 0;
+  }
+
+  .Ll,
+  article {
+    width: auto;
+    grid-area: library;
+    border: 0;
+  }
+
+  .bP,
+  .bU {
+    display: block;
+    float: none;
+    width: auto;
+    min-width: unset;
+    border: 0;
+  }
+
+  .bU {
+    position: sticky;
+    top: var(--spacing);
+    left: 0;
+    background-color: transparent;
+  }
+
+  .bP img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .mT {
+    width: auto;
+    border: 0;
+  }
+
+  .Ls,
+  .mD,
+  .mT,
+  .mTm {
+    width: auto;
+  }
+
+  /* Search, Description */
+  .Ls,
+  .mT {
+    grid-area: footer;
+  }
+
+  /* New Cars List */
+  .ulst li {
+    margin-bottom: var(--spacing--xsmall);
+  }
+
+  .ulst .s {
+    display: block;
+    color: var(--clr-text--light);
   }
 
   /*
@@ -169,17 +270,13 @@
     border-top: 1px solid var(--clr-line) !important;
   }
 
-  .Ll {
-    max-height: 200px;
-    overflow: auto;
-  }
-
   .mD {
     font-size: 1rem;
     line-height: 1.3;
     padding: 2rem;
     font-family: inherit;
     text-align: left;
+    border: 0;
   }
 
   .mD h2 {
