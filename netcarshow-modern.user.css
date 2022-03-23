@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         NetCarShow Modern
-@version      v0.1.2
+@version      v0.1.3
 @namespace    github.com/macx
 @description  Modern look for NetCarShow.com
 @author       macx
@@ -24,6 +24,8 @@
 
     --transition: 120ms ease-in;
 
+    --clr-bg: #000;
+    --clr-text: #fff;
     --clr-text--light: rgba(255, 255, 255, 0.8);
     --clr-line: rgba(255, 255, 255, 0.2);
   }
@@ -50,8 +52,8 @@
 
   #cc {
     display: grid;
-    grid-template-columns: 0.7fr 1.3fr;
-    grid-template-rows: 100px 1fr auto-fit;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 100px 1fr minmax(0, 1fr);
     gap: 20px 20px;
     grid-template-areas:
       'header header'
@@ -62,8 +64,7 @@
     padding: var(--spacing);
   }
 
-  .exT,
-  .mTm {
+  .exT {
     display: none;
   }
 
@@ -133,7 +134,21 @@
     grid-area: footer;
   }
 
-  /* New Cars List */
+  /*
+  ┌──────────────────────────────────┐
+    SIDEBAR / NEW CARS
+  └──────────────────────────────────┘
+  */
+
+  .Tbc,
+  .Tbm {
+    text-align: left;
+  }
+
+  .ulst {
+    margin: 0;
+  }
+
   .ulst li {
     margin-bottom: var(--spacing--xsmall);
   }
@@ -141,6 +156,119 @@
   .ulst .s {
     display: block;
     color: var(--clr-text--light);
+  }
+
+  /*
+  ┌──────────────────────────────────┐
+    PAGINATION
+  └──────────────────────────────────┘
+  */
+
+  .mTm {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    gap: 0.5em;
+    color: inherit;
+    border: 0;
+    margin: var(--spacing) 0;
+  }
+
+  .navPG {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    color: transparent;
+  }
+
+  .mTm a:link,
+  .mTm a:visited {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--clr-text);
+    border: 1px solid var(--clr-text--light);
+    border-radius: 50%;
+    margin: 0 0.2em;
+    transition: all var(--transition);
+  }
+
+  .mTm strong {
+    margin: 0 -0.2em;
+  }
+
+  .mTm strong a:link,
+  .mTm strong a:visited,
+  .mTm a:hover {
+    background-color: var(--clr-text);
+    color: var(--clr-bg);
+  }
+
+  .mTm a.navNP {
+    position: relative;
+    color: transparent;
+  }
+
+  .mTm a.navNP::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--clr-text);
+    transition: all var(--transition);
+  }
+
+  .mTm a.navNP:first-child::before {
+    content: '<';
+  }
+
+  .mTm a.navNP:last-child::before {
+    content: '>';
+  }
+
+  .mTm a.navNP:hover::before {
+    color: var(--clr-bg);
+  }
+  /*
+  ┌──────────────────────────────────┐
+    IMAGE PICKER
+  └──────────────────────────────────┘
+  */
+
+  #thpg1 {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .Pi {
+    border: 0;
+    font-size: 0.8rem;
+    font-weight: normal;
+  }
+
+  .Pi a {
+    font-weight: 400;
+  }
+
+  .tss {
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    padding: 0.3em;
+    top: unset;
+    bottom: -100px;
+    width: 100%;
+    transition: all var(--transition);
+  }
+
+  .Pi:hover .tss {
+    bottom: 0;
   }
 
   /*
@@ -182,7 +310,7 @@
 
   /*
   ┌──────────────────────────────────┐
-    IMAGE NAVIGATION
+    IMAGE STAGE
   └──────────────────────────────────┘
   */
 
@@ -273,7 +401,7 @@
   .mD {
     font-size: 1rem;
     line-height: 1.3;
-    padding: 2rem;
+    padding: 0;
     font-family: inherit;
     text-align: left;
     border: 0;
@@ -351,7 +479,7 @@
     .mD {
       font-size: 1.25rem;
       line-height: 1.3;
-      padding: 3rem;
+      padding: 0;
     }
   }
 }
